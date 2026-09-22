@@ -1,9 +1,12 @@
-# Declare files that always have LF line endings on checkout
-* text eol=lf
-# Denote all files that are truly binary and should not be modified
-*.bin binary
-*.bmp binary
-*.ttf binary
-*.gz binary
-*.png binary
-*.o binary
+# 工具链中的二进制文件禁止行尾转换
+aarch64-linux-musl-cross/** -text
+
+# U-Boot 树内自带的 mbed TLS 保持原样，不做行尾转换
+lib/mbedtls/** -text
+
+# 仓库根目录的 mbedtls-3.4.1（TF-A 编译依赖）保持原样
+mbedtls-3.4.1/** -text
+
+# Windows 脚本保持 CRLF（上面的目录规则优先于此条）
+*.bat text eol=crlf
+

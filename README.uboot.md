@@ -1,3 +1,35 @@
+<!--
+  NOTE (AN758x fork): This is the upstream U-Boot documentation kept for
+  reference. It does NOT describe how to build this AN7581/AN7583 port.
+
+  注意（AN758x 分支）：本文档为上游 U-Boot 原始说明，仅供查阅，
+  不包含本 AN7581/AN7583 移植版的构建方法。
+
+  For building this repository, see README.md (section "Build").
+  Quick summary:
+    - The aarch64 musl toolchain, mbed TLS 3.4.1, setenv.sh and
+      build.sh are BUNDLED in this repository.
+    - Host dependency: sudo apt install gcc-arm-none-eabi
+      (Debian / Ubuntu).
+    - mbed TLS must stay at 3.4.x (3.6 LTS removed library/hash_info.c
+      required by the bundled TF-A makefiles).
+    - One-command build:
+        ./build.sh <target>        # e.g. ./build.sh hg5585f-ct
+      build.sh sources setenv.sh internally; manual builds should use
+      ". ./setenv.sh" (dot + space) before scripts/build-an758x.sh.
+
+  本仓库的构建方法请参见 README.md 的 "Build" 一节，要点：
+    - aarch64 musl 工具链、mbed TLS 3.4.1、setenv.sh 与 build.sh
+      已随仓库自带。
+    - 宿主依赖：sudo apt install gcc-arm-none-eabi（Debian / Ubuntu）。
+    - mbed TLS 必须保持 3.4.x（3.6 LTS 移除了 TF-A makefile 需要的
+      library/hash_info.c）。
+    - 一键编译：
+        ./build.sh <目标机型>      # 例如 ./build.sh hg5585f-ct
+      build.sh 内部会自动加载 setenv.sh；手动编译则需先用
+      ". ./setenv.sh"（点号+空格）再运行 scripts/build-an758x.sh。
+-->
+
  # SPDX-License-Identifier: GPL-2.0+
 #
 # (C) Copyright 2000 - 2013
