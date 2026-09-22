@@ -152,3 +152,11 @@ __pycache__
 
 # Clang's compilation database file
 /compile_commands.json
+
+#
+# Exceptions: build scripts and cross toolchain must be tracked
+#
+!/build.sh
+!/scripts/build-an758x.sh
+!/aarch64-linux-musl-cross/
+!/aarch64-linux-musl-cross/**
