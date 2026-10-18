@@ -50,10 +50,9 @@ cd uboot-an758x                           # 进入 uboot 源码目录
 
 # 4. Artifacts / 编译完成后产物在 output/ 目录
 ls output/hg5585f-ct/
-
-# 5. 后续需要编译只需一键命令 /以下以hg5585f-ct机型为例
-./build.sh hg5585f-ct
 ```
+### 后续需要编译只需一键命令 /以下以hg5585f-ct机型为例
+./build.sh hg5585f-ct
 
 > `build.sh` sources `setenv.sh` internally, so no manual environment
 > setup is needed. / `build.sh` 内部会自动加载 `setenv.sh`，无需手动
