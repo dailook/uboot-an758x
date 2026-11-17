@@ -1839,7 +1839,8 @@ http_post_request(struct pbuf *inp, struct http_state *hs,
     /* search for "Content-Length: " */
 #define HTTP_HDR_CONTENT_LEN                "Content-Length: "
 #define HTTP_HDR_CONTENT_LEN_LEN            16
-#define HTTP_HDR_CONTENT_LEN_DIGIT_MAX_LEN  10
+/* The search window covers a u32 decimal value and its trailing CRLF. */
+#define HTTP_HDR_CONTENT_LEN_DIGIT_MAX_LEN  16
     char *scontent_len = lwip_strnstr(uri_end + 1, HTTP_HDR_CONTENT_LEN, crlfcrlf - (uri_end + 1));
     if (scontent_len != NULL) {
       char *scontent_len_end = lwip_strnstr(scontent_len + HTTP_HDR_CONTENT_LEN_LEN, CRLF, HTTP_HDR_CONTENT_LEN_DIGIT_MAX_LEN);
